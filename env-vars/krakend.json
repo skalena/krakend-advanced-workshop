@@ -1,0 +1,38 @@
+{
+    "$schema": "https://www.krakend.io/schema/v3.json",
+    "version": 3,
+    "extra_config": {
+      "telemetry/logging": {
+        "level": "DEBUG",
+        "prefix": "[KRAKEND]",
+        "syslog": false,
+        "stdout": true,
+        "format": "default"
+      }
+    },
+    "timeout": "3000ms",
+    "cache_ttl": "300s",
+    "output_encoding": "no-op",
+    "name": "APIS-Sample",
+    "endpoints": [
+      {
+        "endpoint": "/v1/cep/{CEP}",
+        "timeout": "10s",
+        "method": "GET",
+        "output_encoding": "no-op",
+        "extra_config": {},
+        "backend": [
+          {
+            "url_pattern": "/ws/{CEP}/json/",
+            "encoding": "no-op",
+            "method": "GET",
+            "extra_config": {},
+            "host": [
+              "{{ env "ENDPOINT" }}"
+            ],
+            "disable_host_sanitize": false
+          }
+        ]
+      }
+    ]
+  }
