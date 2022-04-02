@@ -36,3 +36,7 @@ In order to test:
 curl -i http://localhost:8080/v1/cep/04548020
 ```
 We hope you had liked this. 
+
+We hope you had liked this.
+
+Documentation Reference: https://www.krakend.io/docs/configuration/environment-vars/
