@@ -100,7 +100,7 @@ We can play as we want when we are building the configs, properties and template
 ## Putting all together
 It's time to grab the whole files and generate an unique `krakend.json`, in order to do that, we have the following krakend.json template: 
 
-```json
+```json showLineNumbers
 {
     "version": 3,
     "output_encoding": "no-op",
