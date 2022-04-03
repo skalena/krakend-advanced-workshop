@@ -126,7 +126,28 @@ It's time to grab the whole files and generate an unique `krakend.json`, in orde
     ]
 }
 ```
+You can use the potential of these techniques to generate the config files. 
 
-## script
+![examples](https://github.com/edgars/generiquisses/raw/master/img/prnt-post-krakned.png)
 
-### example
+## Script execution
+
+In order to make sure that the env variables are settled properly and also to streamline the KrakenD runtime execution. 
+
+```terminal
+export FC_ENABLE=1 
+export FC_SETTINGS="config/settings" 
+export FC_PARTIALS="config/partials" 
+export FC_TEMPLATES="config/templates"  
+export FC_OUT=out.json
+
+krakend run -c config/krakend.json
+```
+
+## Running the Example
+
+Here is a example in how to execute that example:
+
+```console
+curl -i http://localhost:8080/jobs/backend
+```
