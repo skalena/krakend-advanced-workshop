@@ -147,7 +147,7 @@ krakend run -c config/krakend.json
 In order to execute the script, please: 
 
 ```
-run-multiconfig-krakend.sh
+./run-multiconfig-krakend.sh
 ```
 
 ## Running the Example
