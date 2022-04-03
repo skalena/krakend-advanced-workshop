@@ -1,0 +1,44 @@
+{
+    "version": 3,
+    "output_encoding": "no-op",
+    "port": 8080,
+    "extra_config": {},
+    "host": ["https://api.github.com"],
+    "endpoints": [
+        
+        
+        {
+        "endpoint": "/jobs/backend",
+        "output_encoding": "no-op",
+        "backend": [
+            {
+                "url_pattern": "/repos/backend-br/vagas/issues",
+                "encoding": "no-op",
+                "extra_config": {
+                            "qos/ratelimit/proxy": {
+               "max_rate": "100",
+               "capacity": "100"
+        }
+                }
+            }
+        ]}
+        
+        ,
+        {
+        "endpoint": "/jobs/frontend",
+        "output_encoding": "no-op",
+        "backend": [
+            {
+                "url_pattern": "/repos/frontendbr/vagas/issues",
+                "encoding": "no-op",
+                "extra_config": {
+                            "qos/ratelimit/proxy": {
+               "max_rate": "100",
+               "capacity": "100"
+        }
+                }
+            }
+        ]}
+        
+    ]
+}

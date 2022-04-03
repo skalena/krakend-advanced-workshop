@@ -1,0 +1,12 @@
+{
+    "example_group": [
+        {
+            "endpoint": "/jobs/backend",
+            "backend": "/repos/backend-br/vagas/issues"
+        },
+        {
+            "endpoint": "/jobs/frontend",
+            "backend": "/repos/frontendbr/vagas/issues"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "port": 8080,
+    "default_hosts": [
+        "https://api.github.com"
+    ],
+    "extra_config": {
+
+    }
+}
