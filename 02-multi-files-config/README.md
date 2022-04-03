@@ -144,6 +144,12 @@ export FC_OUT=out.json
 krakend run -c config/krakend.json
 ```
 
+In order to execute the script, please: 
+
+```
+run-multiconfig-krakend.sh
+```
+
 ## Running the Example
 
 Here is a example in how to execute that example:
