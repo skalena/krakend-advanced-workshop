@@ -1,24 +1,63 @@
 {
     "version": 3,
-    "output_encoding": "no-op",
     "port": 8080,
-    "extra_config": {},
-    "host": ["https://api.github.com"],
-    "github_com/devopsfaith/krakend-opencensus": {
-        "exporters": {
-          "jaeger": {
-              "endpoint": "http://localhost:14268/api/traces",
-              "service_name":"krakend"
-          }
-        }
-      },
+    "host": ["https://5f36e6e6bbfd1e00160bed91.mockapi.io"],
+    "extra_config": {
+        "github_com/devopsfaith/krakend-opencensus": {
+            "sample_rate": 100,
+            "reporting_period": 1,
+            "enabled_layers": {
+                "backend": true,
+                "router": true
+            },
+            "exporters": {
+                "jaeger": {
+                    "endpoint": "http://jaeger:14268/api/traces",
+                    "service_name":"krakend"
+                },
+                "logger": {
+                    "stats": true,
+                    "spans": true
+                }
+            }
+        } 
+    },
     "endpoints": [
+		{
+			"endpoint": "/bff/{user}",
+			"method": "GET",
+			"timeout": "800ms",
+			"backend": [
+				{
+					"url_pattern": "/users/{user}",
+                    "mapping": {
+                        "collection": "user"
+                    },
+     
+					"host": [
+						"https://jsonplaceholder.typicode.com"
+					]
+				},
+				{
+					"url_pattern": "/posts/{user}",
+                    "mapping": {
+                        "collection": "posts"
+                    },
+     
+					"host": [
+						"https://jsonplaceholder.typicode.com"
+					]
+				}
+			]
+		}      
+ 
+     ,     
         {
-        "endpoint": "/jobs/backend",
+        "endpoint": "/quotes",
         "output_encoding": "no-op",
         "backend": [
             {
-                "url_pattern": "/repos/backend-br/vagas/issues",
+                "url_pattern": "/quotations",
                 "encoding": "no-op",
                 "extra_config": {
                             "qos/ratelimit/proxy": {
@@ -30,11 +69,11 @@
         ]}
         ,
         {
-        "endpoint": "/jobs/frontend",
+        "endpoint": "/documents",
         "output_encoding": "no-op",
         "backend": [
             {
-                "url_pattern": "/repos/frontendbr/vagas/issues",
+                "url_pattern": "/documento",
                 "encoding": "no-op",
                 "extra_config": {
                             "qos/ratelimit/proxy": {
